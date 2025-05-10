@@ -17,10 +17,31 @@ def add_password(website_name, website_address, website_password):
         print(f"Error while adding password: {e}")
 
 def delete_password(keyword):
-    pass
+    conn = sql.connect(directory)
+    cur = conn.cursor()
+    cur.execute('''
+        DELETE FROM passwords WHERE website_name LIKE ? website_address LIKE ?;
+    ''', (f"%{keyword}", f"%{keyword}"))
+    conn.commit()
+    conn.close()
 
 def search_password(keyword):
-    pass
+    try:
+        conn = sql.connect(directory)
+        cur = conn.cursor()
+        cur.execute('''
+            SELECT * FROM passwords 
+            WHERE website_name LIKE ? OR website_address LIKE ?;
+        ''', (f"%{keyword}", f"%{keyword}"))
+        rows = cur.fetchall()
+        conn.close()
+        if rows:
+            return rows
+        else:
+            return 'na'
+    
+    except Exception as e:
+        print(f"Error while searching password!\nError: {e}")
 
 def view_all_password():
     try:

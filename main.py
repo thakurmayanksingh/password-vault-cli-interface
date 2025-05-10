@@ -29,7 +29,7 @@ if __name__ == '__main__':
                 while True:
                     print("Welcome back to your Vault!")
                     print("1. Add new password\n2. View all saved password\n" \
-                    "3. Search passwords by website name\n4. Delete a password entry\n" \
+                    "3. Search passwords by website name or website address\n4. Delete a password entry\n" \
                     "5. Export to CSV\n6. Exit")
                     
                     inp_menu = int(input("-> "))
@@ -47,6 +47,24 @@ if __name__ == '__main__':
                         passwords_list = vault_operations.view_all_password()
                         for item in passwords_list:
                             print(item)
+
+                    elif inp_menu == 3:
+                        inp_keyword = str(input("Enter keyword for searching: "))
+                        searched_list = vault_operations.search_password(inp_keyword)
+                        if searched_list == 'na':
+                            print("No password found with this keyword!")
+                        else:
+                            print("Result according to your search..")
+                            for item in searched_list:
+                                print(item)
+                    
+                    elif inp_menu == 4:
+                        inp_keyword = str(input("Enter keyword for deletion: "))
+                        try:
+                            pass
+                        
+                        except Exception as e:
+                            print(f"Error: {e}")
                     
                     elif inp_menu == 6:
                         print("Thank you for using the vault.")
@@ -54,7 +72,7 @@ if __name__ == '__main__':
 
             elif access == 'failed':
                 print("Try Again or type quit/exit for exitting.")
-                
+
             elif access == 'quit':
                 break
 

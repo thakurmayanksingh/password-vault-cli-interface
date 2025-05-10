@@ -17,16 +17,16 @@ A simple and secure command-line password vault built with Python and SQLite3. T
 project/
 │
 ├── database/
-│   └── passDB.db         # SQLite3 database file
+│   └── passDB.db
 ├── scripts/
 │   └── initialize_db.py
-│   └── vault_operations.py  # Core database operations
+│   └── vault_operations.py
 │
-├── main.py              # Main CLI interface
-└── README.md            # Project documentation
+├── main.py      
+└── README.md       
 ```
 
-## Requirements
+## Tech Stack
 
 - Python 3.7+
 - `sqlite3` (built-in with Python)
@@ -72,10 +72,12 @@ When exporting to CSV, you will be prompted for a file name (e.g., `vault_passwo
 id, website_name, website_address, website_pass
 ```
 
-Note: The `id` values are auto-incremented and are not reset after deletion.
+## Authors
 
-## Known Limitations
+- **Mayank Singh** — [LinkedIn](https://www.linkedin.com/in/mayank-singh-367572246/) • [GitHub](https://github.com/thakurmayanksingh)
+- **Ishita Modi** — [LinkedIn](https://www.linkedin.com/in/ishita-modi-155676341/) • [GitHub](https://github.com/ishita230105)
 
-- Passwords are stored in plain text (consider encrypting them for production use).
-- Deletion and indexing do not reset the primary key ID values.
-- Authentication is basic (`admin` as password). Improve this for production use.
+```
+
+*Thanks for checking it out! Contributions and suggestions are always welcome.*
+
